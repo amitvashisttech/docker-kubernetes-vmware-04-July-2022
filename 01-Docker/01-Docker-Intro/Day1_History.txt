@@ -99,3 +99,69 @@
   130  docker run --name test-8 ubuntu:18.04 ls -ltr
   131  ls
 ```
+
+
+## Demo 3
+```
+150  docker ps
+  151  docker ps -a
+  152  docker ps
+  153  docker ps -a
+  154  docker ps -aq
+  155  docker rm $(docker ps -aq)
+  156  docker ps -a
+  157  docker run --name test-1 ubuntu echo "Hello World"
+  158  docker ps -a
+  159  docker run -it --name test-2 ubuntu
+  160  docker ps
+  161  docker ps -a
+  162  docker start test-2
+  163  docker ps
+  164  docker attach test-2
+  165  docker ps
+  166  docker exec -it test-2 ls -ltr /root/amitvashist7
+  167  docker exec -it test-2 ls -ltr /root/amitvashist7/
+  168  docker exec -it test-2 ls -ltr /root
+  169  docker ps
+  170  docker exec -it test-2 ls -l /root
+  171  docker exec -it test-2 ls /root
+  172  docker ps
+  173  docker exec -it test-2 ls
+  174  docker exec -it test-2 ls -l
+  175  docker exec -it test-2 ls
+  176  docker exec -it test-2 ls /root
+  177  docker exec -it test-2 ls
+  178  docker exec -it test-2 ls  root
+  179  docker exec -it test-2 ls
+  180  docker exec -it test-2 pwd
+  181  docker exec -it test-2 bash
+  182  docker run -it --name test-3 ubuntu:16.04
+  183  docker ps
+  184  docker exec -it test-3 ls -l
+  185  docker exec -it test-3 ls -l /root
+  186  docker exec -it test-3 ls -l /root/
+  187  docker exec -it test-3 ls -l /root/amit
+  188  docker exec -it test-3 ls -l /root/amit/hello.txt
+  189  docker exec -it test-3 cat  /root/amit/hello.txt
+  190  docker run -itd --name test-4 ubuntu:16.04
+  191  docker ps
+  192  docker run -itd --name test-5 ubuntu:16.04
+  193  docker ps
+  194  docker inspect test-5
+  195  docker ps -l
+  196  docker ps -lq
+  197  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' $(docker ps -lq)
+  198  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' $(docker ps -q)
+  199  docker kill $(docker ps -q)
+  200  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' $(docker ps -q)
+  201  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' $(docker ps -qa)
+  202  docker ps
+  203  docker ps -a
+  204  docker start test-3
+  205  docker ps -a
+  206  docker attach test-3
+  207  docker ps
+  208  docker ps -a
+  209  docker rm $(docker ps -qa)
+  210  docker ps -a
+```
