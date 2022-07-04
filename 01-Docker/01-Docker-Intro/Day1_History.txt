@@ -70,3 +70,32 @@
    99  ls
   100  mkdir 01-Docker-Intro
   101  history > 01-Docker-Intro/Day1_History.txt 
+   38  ls
+
+## Demo 2 
+
+```
+  109  ls
+  110  docker images
+  111  cat /etc/os-release
+  112  docker run ubuntu cat /etc/os-release
+  113  docker run ubuntu:16.04 cat /etc/os-release
+  114  docker pull ubuntu:18.04
+  115  docker images
+  116  docker ps
+  117  docker ps -a
+  118  docker run --name test-1 ubuntu echo "Hey Test"
+  119  docker run --name test-2 ubuntu echo "Hey Test"
+  120  docker run --name test-3 ubuntu echo "Hey Test"
+  121  docker ps
+  122  docker ps -a
+  123  docker run --name test-3 ubuntu echo "Hey Test"
+  124  docker run --name test-4 ubuntu:18.04 echo "Hey Test"
+  125  docker run --name test-5 ubuntu:18.04 echo "Hey Test"
+  126  docker ps -a
+  127  docker run --name test-6 ubuntu:18.04 cat /etc/os-release
+  128  ls -ltr
+  129  docker run --name test-7 ubuntu:18.04 ls
+  130  docker run --name test-8 ubuntu:18.04 ls -ltr
+  131  ls
+```
