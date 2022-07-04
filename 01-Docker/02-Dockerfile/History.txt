@@ -1,0 +1,52 @@
+```
+ 8  mkdir 02-Dockerfile
+    9  cd 02-Dockerfile/
+   10  ls
+   11  mkdir apache/v1 -p
+   12  cd apache/v1/
+   13  ls
+   14  vim Dockerfile
+   15  docker run -it ubuntu:16.04
+   16  ls
+   17  cat Dockerfile
+   18  docker build -t myapache-web:v1 .
+   19  docker images
+   20  ls
+   21  cd ..
+   22  ls
+   23  cd
+   24  ls
+   25  docker run -d --name test-apache-1 myapache-web:v1
+   26  docker ps
+   27* ls\ gre
+   28  cat docker-kubernetes-vmware-04-July-2022/01-Docker/01-Docker-Intro/Day1_History.txt | grep -i format
+   29  cat docker-kubernetes-vmware-04-July-2022/01-Docker/01-Docker-Intro/Day1_History.txt | grep -i for
+   30  cat docker-kubernetes-vmware-04-July-2022/01-Docker/01-Docker-Intro/Day1_History.txt
+   31  history
+   32  ls
+   33  cd docker-kubernetes-vmware-04-July-2022/
+   34  ls
+   35  git pull
+   36  cat docker-kubernetes-vmware-04-July-2022/01-Docker/01-Docker-Intro/Day1_History.txt | grep -i for
+   37  cat 01-Docker/01-Docker-Intro/Day1_History.txt | grep -i for
+   38  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' $(docker ps -q)
+   39  curl 172.17.0.2
+   40  ls
+   41  cd 01-Docker/02-Dockerfile/apache/
+   42  ls
+   43  cp -rf v1 v2
+   44  ls
+   45  cd v2/
+   46  ls
+   47  vim index.html
+   48  ls
+   49  vim Dockerfile
+   50  ls
+   51  docker build -t myapache-web:v2 .
+   52  docker ps
+   53  docker run -d --name test-apache-2 myapache-web:v2
+   54  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' $(docker ps -q)
+   55  cd
+   56  curl 172.17.0.2
+   57  curl 172.17.0.3
+```
