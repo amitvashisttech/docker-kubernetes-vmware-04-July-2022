@@ -1,0 +1,72 @@
+   23  git clone https://github.com/amitvashisttech/docker-kubernetes-vmware-04-July-2022.git
+   24  ls
+   25  cd docker-kubernetes-vmware-04-July-2022/
+   26  ls
+   27  cd 
+   28  ls
+   34  ls
+   35  cd docker-kubernetes-vmware-04-July-2022/
+   36  ls
+   37  mkdir 01-Docker
+   40  ls
+   41  cd 01-Docker/
+   42  ls
+   43  cd 00-Setup/
+   44  ls
+   45  cd 
+   46  ls
+   47  cd docker-kubernetes-vmware-04-July-2022/
+   48  ls
+   49  git add . ; git commit -m "01-Docker" ; git push 
+   50  git pull 
+   51  l
+   52  ls
+   53  cd ..
+   54  ls
+   55  mkdir myRnD
+   56  ls
+   57  cd docker-kubernetes-vmware-04-July-2022/
+   58  ls
+   59  cd 01-Docker/
+   60  ls
+   61  cd 00-Setup/
+   62  ls
+   63  sh install-docker.sh 
+   64  docker version 
+   65  cd 
+   66  ls
+   67  docker images 
+   68  docker ps -a 
+   69  docker run ubuntu echo "Welcome to the world of Docker" 
+   70  docker images 
+   71  docker ps 
+   72  docker ps -a 
+   73  docker run ubuntu echo "Welcome to the world of Docker - Test - 2" 
+   74  docker ps 
+   75  docker ps -a 
+   76  docker pull busybox 
+   77  docker images 
+   78  docker container ls 
+   79  docker container ls -a 
+   80  docker run busybox echo "Hey busybox" 
+   81  docker images 
+   82  docker search busybox 
+   83  docker pull amitvashist7/apache-ex4
+   84  docker pull amitvashist7/k8s-tiny-web
+   85  docker images 
+   86  docker pull amitvashist7/k8s-tiny-web:2
+   87  docker images 
+   88  docker login 
+   89  docker pull amitvashist7/apache-ex4
+   90  docker images 
+   91  docker logout 
+   92  docker rmi 5d592881faed
+   93  docker images 
+   94  docker pull amitvashist7/apache-ex4
+   95  ls
+   96  cd docker-kubernetes-vmware-04-July-2022/
+   97  ls
+   98  cd 01-Docker/
+   99  ls
+  100  mkdir 01-Docker-Intro
+  101  history > 01-Docker-Intro/Day1_History.txt 
