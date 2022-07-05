@@ -1,0 +1,202 @@
+    1  docker ps 
+    2  docker images 
+    3  ls
+    4  cd docker-kubernetes-vmware-04-July-2022/
+    5  ls
+    6  cd 01-Docker/
+    7  ls
+    8  cd 02-Dockerfile/
+    9  ls
+   10  cd apache/
+   11  ls
+   12  cd v2/
+   13  ls
+   14  history 
+   15  docker images 
+   16  docker tag f6c5724f7ffa myapache-web:v2
+   17  docker tag 05a80d276c87 myapache-web:v1
+   18  docker images 
+   19  ls
+   20  docker images 
+   21  docker ps 
+   22  docker ps -a 
+   23  docker rm $(docker ps -qa) 
+   24  cd 
+   25  docker run -d  --name test-apache-1 myapache-web:v1 
+   26  docker run -d  --name test-apache-1 myapache-web:v2
+   27  docker run -d  --name test-apache-2 myapache-web:v2
+   28  docker ps 
+   29  docker inspect test-apache-2
+   30  curl -vv 172.17.0.2
+   31  docker images 
+   32  docker rmi 05a80d276c87
+   33  docker rm 05a80d276c87
+   34  docker rm b6dbe7617fde
+   35  docker rmi 05a80d276c87
+   36  docker images 
+   37  docker ps 
+   38  curl -vv 172.17.0.2
+   39  ls
+   40  docker images 
+   41  docker kill $(docker ps -aq) 
+   42  docker rm $(docker ps -aq) 
+   43  docker tag f6c5724f7ffa myapache-web:v1 
+   44  docker images 
+   45  docker run -d  --name test-apache-1 myapache-web:v1
+   46  curl -vv 172.17.0.2
+   47  docker images 
+   48  s
+   49  ls
+   50  cd - 
+   51  ls
+   52  docker images 
+   53  docker build -t myapache-web:v2 . 
+   54  docker images 
+   55  docker run -d  --name test-apache-2 myapache-web:v2
+   56  curl -vv 172.17.0.3
+   57  ls
+   58  cd ..
+   59  ls
+   60  cp -rf v2 v3 
+   61  ls
+   62  cd v3/
+   63  ls
+   64  vim index.html 
+   65  ls
+   66  vim ports.conf
+   67  ls
+   68  vim Dockerfile 
+   69  ls
+   70  docker build -t myapache-web:v3 . 
+   71  docker images 
+   72  docker run -d  --name test-apache-3 myapache-web:v3
+   73  curl -vv 172.17.0.3
+   74  curl -vv 172.17.0.4
+   75  curl -vv 172.17.0.4:8081
+   76  docker ps 
+   77  docker inspect a02c2318c670
+   78  ls
+   79  cd ..
+   80  s
+   81  ls
+   82  cp -rf v3 v4 
+   83  ls
+   84  cd v4/
+   85  ls
+   86  vim Dockerfile 
+   87  ls
+   88  docker build -t myapache-web:v4 . 
+   89  docker images 
+   90  docker run -d  --name test-apache-4 myapache-web:v4
+   91  docker ps 
+   92  docker inspect test-apache-4
+   93  curl -v 172.17.0.5
+   94  curl -v 172.17.0.5:8081
+   95  docker images 
+   96  docker ps 
+   97  ls
+   98  cd ..
+   99  ls
+  100  cp -rf v4 v5 
+  101  ls
+  102  cd v5/
+  103  l
+  104  vim ports.conf 
+  105  ls
+  106  vim Dockerfile 
+  107  ls
+  108  docker build -t myapache-web:v5 . 
+  109  docker run -d  --name test-apache-5 myapache-web:v5
+  110  docker ps 
+  111  docker inspect test-apache-5
+  112  curl -v 172.17.0.6:8081
+  113  docker ps 
+  114  curl -v 172.17.0.6:9090
+  115  ls
+  116  cd ..
+  117  ls
+  118  cp -rf v5 v6 
+  119  ls
+  120  cd v6/ 
+  121  ls
+  122  vim ports.conf 
+  123  vim Dockerfile 
+  124  ls
+  125  docker build -t myapache-web:v6 . 
+  126  vim index.html 
+  127  docker build -t myapache-web:v6 . 
+  128  docker run -d  --name test-apache-6 myapache-web:v6
+  129  curl -v 172.17.0.7:8080
+  130  docker ps 
+  131  ip addr 
+  132  curl -v 172.17.0.7:8080
+  133  curl 172.17.0.7:8080
+  134  curl localhost:8080
+  135  curl 172.31.0.100:8080
+  136  docker run -d  --name test-apache-7 -p 8080:8080 myapache-web:v7
+  137  docker run -d  --name test-apache-7 -p 8080:8080 myapache-web:v6
+  138  docker ps 
+  139  netstat -tulnp 
+  140  systemctl  status docker 
+  141  docker inspect test-apache-7
+  142  history 
+  143  curl localhost:8080
+  144  curl 172.31.0.100:8080
+  145  systemctl status docker 
+  146  cd 
+  147  docker ps 
+  148  docker run -d  --name test-apache-8 -p 8081:8080 myapache-web:v6
+  149  docker ps 
+  150  systemctl status docker 
+  151  docker images 
+  152  docker ps 
+  153  docker run -d  --name test-apache-9 -P  myapache-web:v6
+  154  docker ps 
+  155  docker run -d  --name test-apache-10 -P  myapache-web:v6
+  156  docker ps 
+  157  ls
+  158  cd docker-kubernetes-vmware-04-July-2022/
+  159  ls
+  160  cd 01-Docker/
+  161  ls
+  162  cd 02-Dockerfile/
+  163  s
+  164  ls
+  165  cd ..
+  166  ls
+  167  git pull 
+  168  ls
+  169  cd ..
+  170  ls
+  171  cd ..
+  172  ls
+  173  cd myRnD/
+  174  ls
+  175  git clone https://github.com/amitvashisttech/docker-kubernetes-vmware-04-July-2022.git
+  176  ls
+  177  cd ..
+  178  ls
+  179  cp -rf docker-kubernetes-vmware-04-July-2022/01-Docker/02-Dockerfile/* myRnD/docker-kubernetes-vmware-04-July-2022/01-Docker/02-Dockerfile/
+  180  s
+  181  ls
+  182  cd docker-kubernetes-vmware-04-July-2022/
+  183  ls
+  184  cd 01-Docker/
+  185  l
+  186  cd ..
+  187  l
+  188  ls
+  189  history > Day2
+  190  ls
+  191  git add . ; git commit -m "01-Docker" ; git push 
+  192  ls
+  193  cd ..
+  194  l
+  195  scd myRnD/
+  196  ls
+  197  cd myRnD/
+  198  ls
+  199  cd docker-kubernetes-vmware-04-July-2022/
+  200  ls
+  201  history 
+  202  history > Day2
