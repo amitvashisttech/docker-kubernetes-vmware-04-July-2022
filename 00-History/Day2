@@ -200,3 +200,69 @@
   200  ls
   201  history 
   202  history > Day2
+
+
+
+Demo: Docker Volumes 
+```
+ 217  docker volume ls
+  218  docker volume create my-vol
+  219  docker volume ls
+  220  docker volume inspect my-vol
+  221  ls -ld /var/lib/docker/volumes/my-vol/_data
+  222  docker run -it --name volume-test-1 -v my-vol:/var/www/html/myapp ubuntu:16.04
+  223  docker ps
+  224  docker inspect volume-test-1
+  225  ls -ld /var/lib/docker/volumes/my-vol/_data
+  226  ls -l /var/lib/docker/volumes/my-vol/_data
+  227  cat /var/lib/docker/volumes/my-vol/_data/hello.txt
+  228  docker ps
+  229  docker run -it --name volume-test-2 -v my-vol:/var/www/html/amit ubuntu:16.04
+  230  docker ps
+  231  cat /var/lib/docker/volumes/my-vol/_data/hello.txt
+  232  docker ps
+  233  docker kill $(docker ps -qa )
+  234  docker rm $(docker ps -qa )
+  235  docker ps -a
+  236  docker volumes ls
+  237  docker volume ls
+  238  docker volume inspect my-vol
+  239  cat /var/lib/docker/volumes/my-vol/_data/hello.txt
+  240  docker run -it --name volume-test-3 -v /var/www/html/amit ubuntu:16.04
+  241  docker ps
+  242  docker inspect volume-test-3
+  243  docker volumes ls
+  244  docker volume ls
+  245  cat /var/lib/docker/volumes/1d2cf97f9e6c2f53754b5906babde7412227297af474962ed4880abc8dfb5959/_data/hello.txt
+  246  docker kill $(docker ps -qa )
+  247  docker rm $(docker ps -qa )
+  248  docker ps -a
+  249  docker volume ls
+  250  cat /var/lib/docker/volumes/1d2cf97f9e6c2f53754b5906babde7412227297af474962ed4880abc8dfb5959/_data/hello.txt
+  251  ls
+  252  docker run -it --name volume-test-4 -v /myapp -v /amit -v /var/log/myapp ubuntu:16.04
+  253  docker volume ls
+  254  docker inspect volume-test-4
+  255  docker run -it --name volume-test-5 --volumes-from volume-test-4 ubuntu:16.04
+  256  docker ps
+  257  docker inspect volume-test-5
+  258  docker kill volume-test-4
+  259  docker rm volume-test-4
+  260  docker ps -a
+  261  docker inspect volume-test-5
+  262  docker run -it --name volume-test-6 -v /root/myRnD/docker-kubernetes-vmware-04-July-2022:/amit ubuntu:16.04
+  263  ls
+  264  cat hello.txt
+  265  docker run -it --name volume-test-7 -v /root/myRnD/docker-kubernetes-vmware-04-July-2022:/amit:ro ubuntu:16.04
+  266  docker ps
+  267  docker inspect volume-test-6
+  268  docker inspect volume-test-7
+  269  docker kill $(docker ps -qa )
+  270  docker rm $(docker ps -qa )
+  271  docker ps
+  272  docker volume ls
+  273  docker volume ls -q
+  274  docker volume rm $(docker volume ls -q )
+  275  docker volumes ls
+  276  docker volume ls
+```
