@@ -266,3 +266,72 @@ Demo: Docker Volumes
   275  docker volumes ls
   276  docker volume ls
 ```
+
+
+Demo : Docker Network
+```
+284  git add . ; git commit -m "01-Docker" ; git push
+  285  docker ps
+  286  docker ps -a
+  287  docker run -it --name net-tools-test ubuntu:16.04
+  288  docker ps
+  289  docker commit -p -m "Net Tools Installed" 06373e9fdbd6 nettools-ubuntu:v1
+  290  docker images
+  291  docker run -itd --name test-nettools-2 nettools-ubuntu:v1
+  292  docker ps
+  293  docker exec -it test-nettools-2  ifconfig
+  294  docker exec -it net-tools-test  ifconfig
+  295  docker exec -it test-nettools-2  ping -c2 google.com
+  296  docker network  ls
+  297  docker network inspect d6320c2930b9
+  298  ip addr
+  299  docker run -itd --name test-nettools-3 nettools-ubuntu:v1
+  300  docker run -itd --name test-nettools-4 nettools-ubuntu:v1
+  301  docker run -itd --name test-nettools-5 nettools-ubuntu:v1
+  302  docker ps
+  303  docker network inspect d6320c2930b9
+  304  docker inspect "test-nettools-2"
+  305  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' test-nettools-2
+  306  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' $(docker ps -qa)
+  307  docker kill test-nettools-3
+  308  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' $(docker ps -qa)
+  309  docker run -itd --name test-nettools-6 nettools-ubuntu:v1
+  310  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' $(docker ps -qa)
+  311  docker start test-nettools-3
+  312  docker inspect --format '{{.Name}} {{.NetworkSettings.IPAddress}}' $(docker ps -qa)
+  313  docker network ls
+  314  docker kill $(docker ps -qa)
+  315  docker rm $(docker ps -qa)
+  316  docker run -itd --name test-net-bridge nettools-ubuntu:v1
+  317  docker run -itd --name test-net-host --network host nettools-ubuntu:v1
+  318  docker run -itd --name test-net-none --network none nettools-ubuntu:v1
+  319  docker ps
+  320  docker exec -it test-net-bridge ifconfig
+  321  docker exec -it test-net-none ifconfig
+  322  docker exec -it test-net-host ifconfig
+  323  docker network ls
+  324  docker network create --help
+  325  docker network create mybr0 --driver bridge --subnet 172.28.0.0/16 --ip-range 172.28.5.0/24 --gateway 172.28.5.254
+  326  docker network ls
+  327  docker inspect mybr0
+  328  docker run -itd --name test-net-1 --network mybr0 nettools-ubuntu:v1
+  329  docker run -itd --name test-net-2 --network mybr0 nettools-ubuntu:v1
+  330  docker run -itd --name test-net-3 --network mybr0 nettools-ubuntu:v1
+  331  docker exec -it test-net-1 ifconfig
+  332  docker exec -it test-net-2 ifconfig
+  333  docker exec -it test-net-3 ifconfig
+  334  docker exec -it test-net-3 ping -c2 172.28.5.2
+  335  docker exec -it test-net-3 ping -c2 172.28.5.1
+  336  docker exec -it test-net-3 ping -c2 172.28.5.0
+  337  docker exec -it test-net-3 ping -c2 google.com
+  338  ls
+  339  docker network ls
+  340  docker network inspect e634ba6fa1b3
+  341  docker kill $(docker ps -qa)
+  342  docker rm $(docker ps -qa)
+  343  docker ps
+  344  docker network inspect mybr0
+  345  docker network rm mybr0
+  346  ls
+  347  docker network ls
+```
