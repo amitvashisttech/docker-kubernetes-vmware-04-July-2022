@@ -3,13 +3,13 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    run: hello-k8s
-  name: hello-k8s
+    run: my-k8s
+  name: my-k8s
 spec:
   imagePullSecrets:
   - name: regcred
   containers:
   - image: nginx
-    name: hello-k8s
+    name: my-k8s
     ports:
     - containerPort: 80
